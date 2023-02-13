@@ -9,4 +9,3 @@ export default function Logo ({type='default'}) {
     }
     return logo;
 };
-
