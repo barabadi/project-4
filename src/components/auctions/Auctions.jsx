@@ -1,15 +1,17 @@
-import { Select, Grid, MenuItem, Box } from "@mui/material";
+import { Select, Grid, MenuItem, Box, Button } from "@mui/material";
 import Container from "@mui/material/Container";
-import Card from "../card/Card";
-import classNames from "classnames";
-import styles from "./Trending.module.scss";
 
-export default function Trending({ cards = [] }) {
+import Card from "../card/Card";
+
+import classNames from "classnames";
+import styles from "./Auctions.module.scss";
+
+export default function Auctions({ cards = [] }) {
   return (
     <div>
       <Container>
         <Box display="flex" justifyContent="space-between" alignItems="center">
-          <h1 className={classNames(styles.header)}>Trending</h1>
+          <h1 className={classNames(styles.header)}>🔥 Live Auctions</h1>
           <Select
             sx={{
               width: "220px",
@@ -17,7 +19,7 @@ export default function Trending({ cards = [] }) {
               borderRadius: "30px",
             }}
           >
-            <MenuItem value={1}>This week</MenuItem>
+            <MenuItem value={1}>Price range</MenuItem>
           </Select>
         </Box>
         <Grid container spacing={2}>
@@ -25,7 +27,7 @@ export default function Trending({ cards = [] }) {
             <Grid item xs={3} key={card.name}>
               <Card
                 name={card.name}
-                likes={2300}
+                likes={card.likes}
                 mediaUrl={card.mediaUrl}
                 user={card.user}
                 price={card.price}

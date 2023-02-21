@@ -1,15 +1,15 @@
+import Avatar from "../avatar/Avatar";
+import classNames from "classnames";
 import styles from "./User.module.scss";
-import Avatar from "../avatar/Avatar"
 
-export default function User ({ name = '', info = '', avatar = '', size = 55, verified = false }) {
-    return (
-      <div className={styles.user}>
-        <Avatar url={avatar} size={size} verified={verified} />
-        <div className={styles.infoContainer}>
-            <p className={styles.name}>{name}</p>
-            <p className={styles.info}>{info}</p>
-        </div>
+export default function User({ name, info, avatar, size = 55, verified }) {
+  return (
+    <div className={classNames(styles.user)}>
+      <Avatar size={size} verified={verified} avatar={avatar} />
+      <div className={classNames(styles.userInfo)}>
+        <p className={classNames(styles.name)}>{name}</p>
+        <p className={classNames(styles.info)}>{info}</p>
       </div>
-    );
-  };
-  
+    </div>
+  );
+}

@@ -1,68 +1,24 @@
 @use "../../styles/colors";
 
-@font-face {
-    font-family: 'Montserrat-SemiBold';
-    src: url('../../fonts/Montserrat/static/Montserrat-SemiBold.ttf') format('truetype');
-    font-weight: 600;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Montserrat-Regular';
-    src: url('../../fonts/Montserrat/static/Montserrat-Regular.ttf') format('truetype');
-    font-weight: 400;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Laca';
-    src: url('../../fonts/laca-cufonfonts-webfont/Laca\ Semibold.woff') format('truetype');
-    font-weight: 700;
-    font-style: normal;
-}
-
 .container {
-    justify-content: 'space-between';
-    width: '100%';
-    background-color: colors.$background_paper;
-}
-
-.searchContainer{
-    background-color: colors.$background_default;
-    width: 400px;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: row;
-    font-family: 'Montserrat-Regular' !important;
-    font-weight: 400;
-    font-size: 16px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  background-color: colors.$background_paper;
 }
 
 .searchField {
-    width: 100%;
-    font-family: 'Montserrat-Regular' !important;
-    font-weight: 400;
-    font-size: 16px;
+  background-color: colors.$background_default;
+  border-radius: 30px;
+  width: 580px;
 }
 
-.searchField::placeholder {
-    color: colors.$text_secondary !important;
+.searchIcon {
+  color: colors.$text_primary;
 }
 
-.buttonContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-}
-
-.buttonBase {
-    font-family: 'Montserrat-SemiBold' !important;
-    font-weight: 600 !important;
-    font-size: 14px !important;
-}
-
-.button {
-    font-family: 'Laca' !important;
-    font-weight: 700 !important;
-    font-size: 16px !important;
+.textButton {
+  color: colors.$text_primary !important;
+  text-transform: capitalize !important;
+  font-weight: 400 !important;
 }
