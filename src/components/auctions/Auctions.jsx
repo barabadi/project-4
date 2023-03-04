@@ -1,41 +1,30 @@
-import { Select, Grid, MenuItem, Box, Button } from "@mui/material";
-import Container from "@mui/material/Container";
-
-import Card from "../card/Card";
-
+import React from 'react';
+import styles from './Auctions.module.scss';
 import classNames from "classnames";
-import styles from "./Auctions.module.scss";
+import { Container, Grid, Select, MenuItem } from '@mui/material';
+import NftCard from '../card/Card';
 
-export default function Auctions({ cards = [] }) {
+export default function Auctions({cards=[]}) {
+
   return (
-    <div>
-      <Container>
-        <Box display="flex" justifyContent="space-between" alignItems="center">
-          <h1 className={classNames(styles.header)}>🔥 Live Auctions</h1>
-          <Select
-            sx={{
-              width: "220px",
-              height: "50px",
-              borderRadius: "30px",
-            }}
-          >
-            <MenuItem value={1}>Price range</MenuItem>
-          </Select>
-        </Box>
-        <Grid container spacing={2}>
-          {cards.map((card) => (
-            <Grid item xs={3} key={card.name}>
-              <Card
-                name={card.name}
-                likes={card.likes}
-                mediaUrl={card.mediaUrl}
-                user={card.user}
-                price={card.price}
-                currency={card.currency}
-              />
-            </Grid>
+    <div className={classNames(styles.container)} maxWidth="xl">
+      <div className={classNames(styles.containerMenu)}>
+      <div className={classNames(styles.headingMenu)}>
+      <img src="images/fire2.png" alt="Fire Emoji" className={classNames(styles.fireIcon)}/>
+      <h2 className={classNames(styles.heading)}>Live Auctions</h2>
+      </div>
+      <Select value={'This week'} defaultValue="This week" className={classNames(styles.selectMenu)}>
+          <MenuItem value="This week">This week</MenuItem>
+      </Select>
+      </div>
+      <Container maxWidth="xl" className={classNames(styles.containerGrid)}>
+      <Grid container className={classNames(styles.gridCont)} >
+          {cards.map((card, index) => (
+          <Grid item  xs={3} sm={6} md={3} key={index} columnGap={0}>
+            <NftCard {...card} />
+          </Grid>
           ))}
-        </Grid>
+      </Grid>
       </Container>
     </div>
   );

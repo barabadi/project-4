@@ -1,15 +1,49 @@
 @use "../../styles/colors";
 
-.header {
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 900;
-  font-size: 3rem;
-  line-height: 20px;
-  color: colors.$text_primary;
+@font-face {
+    font-family: 'Montserrat-ExtraBold';
+    src: url('../../fonts/Montserrat/static/Montserrat-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
 }
 
-.trending_wrapper {
-  padding: 100px;
-  background-color: colors.$primary_main;
+@font-face {
+    font-family: 'Montserrat-Medium';
+    src: url('../../fonts/Montserrat/static//Montserrat-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+.heading{
+    font-family: 'Montserrat-ExtraBold';
+    font-weight: 800;
+    font-size: 48px;
+}
+
+.container {
+    width: 100% !important;
+    background-color: colors.$background_default;
+}
+
+
+.containerMenu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.selectMenu{
+    width: 20%;
+    color: white !important;
+    font-family: 'Montserrat-Medium' !important;
+    font-size: 14px !important;
+}
+
+.containerGrid{
+    height: 100px;
+    padding: 0 0 0 0 !important;
+}
+
+.gridCont{
+    width: 100% !important;
 }

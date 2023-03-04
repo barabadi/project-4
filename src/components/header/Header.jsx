@@ -1,52 +1,33 @@
-import Container from "@mui/material/Container";
-import { Grid, Button, TextField, InputAdornment } from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
+import React from "react";
 import classNames from "classnames";
-import Logo from "../../components/logo/Logo";
-
 import styles from "./Header.module.scss";
+import Grid from "@mui/material/Grid";
+import Logo from '../logo/Logo'
+import SearchIcon from '@mui/icons-material/Search'
+import { ButtonBase, InputBase } from "@mui/material";
+import Button from '@mui/material/Button'
 
 export default function Header() {
-  return (
-    <div>
-      <Container className={classNames(styles.container)}>
-        <Grid container alignItems="center" justifyContent="space-evenly">
-          <Grid item>
-            <Logo type="default" />
-          </Grid>
-          <Grid item>
-            <TextField
-              InputLabelProps={{
-                style: { color: "#fff" },
-              }}
-              className={classNames(styles.searchField)}
-              placeholder="Find items, users and activities"
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <SearchIcon className={classNames(styles.searchIcon)} />
-                  </InputAdornment>
-                ),
-              }}
-            />
-          </Grid>
-          <Grid item>
-            <Button variant="text" className={classNames(styles.navMenuBtns)}>
-              Home
-            </Button>
-            <Button variant="text" className={classNames(styles.navMenuBtns)}>
-              Activity
-            </Button>
-            <Button
-              color="primary"
-              variant="contained"
-              className={classNames(styles.navMenuBtns)}
-            >
-              EXPLORE
-            </Button>
-          </Grid>
-        </Grid>
-      </Container>
-    </div>
-  );
+
+    return (
+            <Grid container justify={'space-between'} alignItems={"center"} className={classNames(styles.container)}>
+                <Grid item xs={2}>
+                    <Logo> </Logo>
+                </Grid>
+                <Grid item xs={6}  >
+                    <div className={classNames(styles.searchContainer)}>
+                        <SearchIcon />
+                        <InputBase
+                            placeholder="Find assets, users and activity..."
+                            className={classNames(styles.searchField)}
+                        />
+                    </div>
+                </Grid>
+                <Grid item xs={4} columnGap={6} justify="flex-end" alignItems={'center'} className={classNames(styles.buttonContainer)}>
+                        <ButtonBase variant="contained" color="primary" className={classNames(styles.buttonBase)}>Home</ButtonBase>
+                        <ButtonBase variant="contained" color="primary" className={classNames(styles.buttonBase)}>Activity</ButtonBase>
+                        <Button variant="contained" color="primary"  className={classNames(styles.button)} style={{ color: "white", fontSize: '16px' }}>EXPLORE</Button>
+                </Grid>
+            </Grid>
+    )
 }

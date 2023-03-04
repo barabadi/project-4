@@ -1,26 +1,12 @@
-import styles from "./Avatar.module.scss";
-import classNames from "classnames";
+import React from 'react';
+import styles from './Avatar.module.scss';
 
-export default function Avatar({
-  size = 90,
-  url,
-  verified = false,
-  badgeSize,
-}) {
+
+export default function Avatar ({ url, size = 90, verified = false }) {
   return (
-    <div
-      className={classNames(styles.avatar)}
-      style={{ width: size + "px", height: size + "px" }}
-    >
-      <img className={classNames(styles.image)} src={url} alt="" />
-      {verified && (
-        <img
-          className={classNames(styles.badge)}
-          src="/images/verified.svg"
-          style={{ width: badgeSize + "px" }}
-          alt=""
-        />
-      )}
+    <div className={styles.avatar} style={{ width: size, height: size }}>
+      <img className={styles.image} src={url} alt="avatar" style={{ width: size }} />
+      {verified && <img className={styles.badge} src='/images/verified.svg' alt="verified" />}
     </div>
   );
-}
+};

@@ -1,39 +1,27 @@
-import { Select, Grid, MenuItem, Box } from "@mui/material";
-import Container from "@mui/material/Container";
-import Card from "../card/Card";
+import React from 'react';
+import styles from './Trending.module.scss';
 import classNames from "classnames";
-import styles from "./Trending.module.scss";
+import { Container, Grid, Select, MenuItem } from '@mui/material';
+import NftCard from '../card/Card';
 
-export default function Trending({ cards = [] }) {
+export default function Trending({cards=[]}) {
+
   return (
-    <div>
-      <Container>
-        <Box display="flex" justifyContent="space-between" alignItems="center">
-          <h1 className={classNames(styles.header)}>Trending</h1>
-          <Select
-            sx={{
-              width: "220px",
-              height: "50px",
-              borderRadius: "30px",
-            }}
-          >
-            <MenuItem value={1}>This week</MenuItem>
-          </Select>
-        </Box>
-        <Grid container spacing={2}>
-          {cards.map((card) => (
-            <Grid item xs={3} key={card.name}>
-              <Card
-                name={card.name}
-                likes={2300}
-                mediaUrl={card.mediaUrl}
-                user={card.user}
-                price={card.price}
-                currency={card.currency}
-              />
-            </Grid>
+    <div className={classNames(styles.container)} maxWidth="xl">
+      <div className={classNames(styles.containerMenu)}>
+      <h2 className={classNames(styles.heading)}>Trending</h2>
+      <Select value={'This week'} defaultValue="This week" className={classNames(styles.selectMenu)}>
+          <MenuItem value="This week">This week</MenuItem>
+      </Select>
+      </div>
+      <Container maxWidth="xl" className={classNames(styles.containerGrid)}>
+      <Grid container className={classNames(styles.gridCont)} >
+          {cards.map((card, index) => (
+          <Grid item  xs={3} sm={6} md={3} key={index} columnGap={0}>
+            <NftCard {...card} />
+          </Grid>
           ))}
-        </Grid>
+      </Grid>
       </Container>
     </div>
   );

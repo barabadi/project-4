@@ -1,33 +1,147 @@
 @use "../../styles/colors";
 
-.learn_more_btn {
-  background-color: colors.$text_primary !important;
-  color: colors.$primary_main !important;
-  margin: 16px 0 16px 0 !important;
+@font-face {
+    font-family: 'Montserrat-SemiBold';
+    src: url('../../fonts/Montserrat/static/Montserrat-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
 }
 
-.how_description {
-  color: colors.$text_hint;
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 26px;
-  margin: 10px 0 5px 0;
+@font-face {
+    font-family: 'Montserrat-Regular';
+    src: url('../../fonts/Montserrat/static/Montserrat-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
 }
 
-.how_title {
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 900;
-  font-size: 3.75rem;
-  line-height: 73px;
-  width: 100%;
-  margin: 0;
+
+@font-face {
+    font-family: 'Montserrat-Bold';
+    src: url('../../fonts/Montserrat/static/Montserrat-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
 }
 
-.how_container {
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
+
+@font-face {
+    font-family: 'Montserrat-Black';
+    src: url('../../fonts/Montserrat/static/Montserrat-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Laca';
+    src: url('../../fonts/laca-cufonfonts-webfont/Laca\ Semibold.woff') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+
+.containerStep {
+    border-radius: 30px;
+    justify-content: center;
+    height: 80%;
+    margin-bottom: 50px;
+}
+
+
+.numbers {
+    background-color: colors.$primary_main !important;
+    border-radius: 30px 0 0 30px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+
+.numbersDiv {
+    font-family: 'Montserrat-Bold';
+    background-color: colors.$primary_main !important;
+    font-size: 100px;
+    color: white;
+    opacity: 0.1;
+}
+
+.infoDiv {
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.info {
+    background-color: colors.$background_paper;
+    border-radius: 0 30px 30px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    font-family: 'Montserrat-Bold';
+    font-weight: 700;
+    font-size: 18px;
+    width: 80%;
+    margin: 0 auto;
+    text-transform: uppercase;
+}
+
+.description {
+    font-family: 'Montserrat-Regular';
+    font-weight: 400;       
+    font-size: 14px;
+    color: colors.$text_secondary;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.containerHow {
+    background-color: colors.$primary_main !important;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+.containerStepHow{
+    justify-content: space-between;
+    height: 120%;
+}
+
+
+.back {
+    background-color: colors.$primary_main;
+    z-index: -2;
+    position: absolute;
+    width: 100%;
+    height: 90%;
+}
+
+.titleHow {
+    font-family: 'Montserrat-Black';
+    font-weight: 900;
+    font-size: 60px;
+}
+
+.descriptionHow{
+    font-family: 'Montserrat-Regular';
+    font-weight: 400;
+    font-size: 16px;
+    color:colors.$text_secondary;
+}
+
+.btn {
+    background-color: white !important;
+    margin-top: 50px !important;
+    font-family: 'Laca' !important;
+    color: colors.$primary_main !important;
+    font-weight: 700 !important;
+    font-size: 16px !important;
+    padding: 20px 50px 20px 50px !important;
+    border-radius: 30px !important;
 }

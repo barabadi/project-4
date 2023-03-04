@@ -1,88 +1,67 @@
-import Countdown, { zeroPad } from "react-countdown";
-import classNames from "classnames";
-import { Card as MuiCard, Chip, CardContent, Typography } from "@mui/material";
-import CircleIcon from "@mui/icons-material/Circle";
-import millify from "millify";
-import FavoriteIcon from "@mui/icons-material/Favorite";
+import React from 'react';
+import Avatar from '../avatar/Avatar';
+import Chip from '@material-ui/core/Chip';
+import Card from '@material-ui/core/Card';
+import millify from 'millify';
+import styles from './Card.module.scss';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import Countdown from 'react-countdown';
+import TimelineDot from '@mui/lab/TimelineDot';
+import { Circle } from '@mui/icons-material';
 
-import styles from "./Card.module.scss";
 
-import Avatar from "../../components/avatar/Avatar";
-
-export default function Card({
-  name = "",
-  likes = 0,
-  mediaUrl = "",
-  user = { avatar: { url: "" }, verified: false },
-  price = "",
-  currency = "",
-  timeLeft,
+export default function NftCard({
+  name,
+  likes=0,
+  mediaUrl,
+  user: { avatar: { url: avatarUrl }, verified },
+  price,
+  currency,
+  timeLeft
 }) {
-  const likesMilified = millify(likes);
-
-  const badge = (
-    <div className={classNames(styles.badge)}>
-      <CircleIcon fontSize="11px" />
-      <p className={classNames(styles.badgeText)}>LIVE</p>
-    </div>
-  );
-
-  const countdown = ({ hours, minutes, seconds }) => (
-    <div className={classNames(styles.countdown)}>
-      {zeroPad(hours)}:{zeroPad(minutes)}:{zeroPad(seconds)}
-    </div>
-  );
-
   return (
-    <MuiCard
-      className={classNames(
-        styles.card,
-        timeLeft ? styles.cardLive : styles.card
-      )}
-    >
-      <div className={classNames(styles.avatarHolder)}>
-        <Avatar
-          src={user.avatar.url}
-          size="33"
-          verified={user.verified}
-          badgeSize="15.55"
-        />
-      </div>
-      <div className={classNames(styles.imageHolder)}>
-        {timeLeft && badge}
-        <img src={mediaUrl} className={classNames(styles.media)} alt="" />
-        {timeLeft && (
-          <Countdown date={Date.now() + timeLeft} renderer={countdown} />
-        )}
-      </div>
-      <CardContent className={classNames(styles.titles)}>
-        <div>
-          <Typography
-            variant="body2"
-            color="textSecondary"
-            component="p"
-            className={classNames(styles.title)}
-          >
-            {name}
-          </Typography>
-          <Typography
-            variant="body2"
-            color="textSecondary"
-            className={classNames(styles.price)}
-          >
-            ~{price} {currency}
-          </Typography>
+    <div className={styles.wrapper}>
+    {timeLeft ? (
+      <Card className={styles.cardLive}>
+          
+      <Avatar url={avatarUrl} size={40} verified={verified} className={styles.avatar} />
+      <div className={styles.mediaContainer} > 
+        <div className={styles.badge}>
+           <Circle className={styles.dot}></Circle>
+           <span className={styles.liveText}>LIVE</span>
         </div>
-
-        <Chip
-          label={likesMilified}
-          variant="outlined"
-          color="secondary"
-          size="small"
-          icon={<FavoriteIcon />}
-          className={classNames(styles.likes)}
-        />
-      </CardContent>
-    </MuiCard>
+        <div className={styles.countdown}> 
+        <Countdown date={Date.now() + timeLeft} className={styles.counter}/>
+        </div>
+        <img className={styles.media} src={mediaUrl} title={name} />
+        </div>
+        <div className={styles.details}>
+          <div className={styles.info}>
+            <p className={styles.title}>{name}</p>
+            <p className={styles.price}>{price} {currency}</p>
+          </div>
+          <div className={styles.likesContainer}>
+            <Chip className={styles.likes}
+              label={millify(likes)} color="primary" avatar={<FavoriteIcon className={styles.icon} />} />
+          </div>
+        </div>
+      </Card>
+    ) : (
+      <Card className={styles.card}>
+        <Avatar url={avatarUrl} size={40} verified={verified} className={styles.avatar} />
+        <img className={styles.media} src={mediaUrl} title={name} />
+        <div className={styles.details}>
+          <div className={styles.info}>
+            <p className={styles.title}>{name}</p>
+            <p className={styles.price}>{price} {currency}</p>
+          </div>
+          <div className={styles.likesContainer}>
+            <Chip className={styles.likes}
+              label={millify(likes)} color="primary" avatar={<FavoriteIcon className={styles.icon} />} />
+          </div>
+        </div>
+        </Card>
+    )}
+    </div>
   );
 }

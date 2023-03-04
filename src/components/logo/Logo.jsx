@@ -1,13 +1,11 @@
-export default function Logo({ type = "default" }) {
-  const logoDefault = <img src="/images/logo.svg" alt="logo" />;
-  const logoMuted = <img src="/images/logo-muted.svg" alt="muted logo" />;
-  let logo;
+import React from "react";
 
-  if (!type || type == "default") {
-    logo = logoDefault;
-  } else if (type == "muted") {
-    logo = logoMuted;
-  }
-
-  return logo;
-}
+export default function Logo ({type='default'}) {
+    let logo;
+    if (type==='default') {
+        logo = <img src='./images/logo.svg' alt="Default logo"/>;
+    } else if (type ==='muted') {
+        logo = <img src='./images/logo-muted.svg' alt="Muted logo"/>;
+    }
+    return logo;
+};

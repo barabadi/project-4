@@ -1,50 +1,28 @@
-import * as React from "react";
-
-// mui components
-import { Grid, Container, Typography, Button } from "@mui/material";
-
-// components
-import Logo from "../logo/Logo";
-
-// styles
-import styles from "./Footer.module.scss";
+import React from "react";
 import classNames from "classnames";
+import styles from "./Footer.module.scss";
+import Grid from "@mui/material/Grid";
+import Logo from '../logo/Logo'
+import SearchIcon from '@mui/icons-material/Search'
+import { ButtonBase, InputBase } from "@mui/material";
+import Button from '@mui/material/Button'
 
 export default function Footer() {
-  return (
-    <footer className={classNames(styles.footer)}>
-      <Container maxWidth="lg">
-        <Grid container rowSpacing={1}>
-          <Grid item xs={4}>
-            <Logo type="muted" />
-          </Grid>
-          <Grid item xs={4}>
-            <Typography
-              variant="body2"
-              className={classNames(styles.text)}
-              sx={{ paddingTop: 2 }}
-            ></Typography>
-          </Grid>
-          <Grid item xs={4}>
-            <Typography sx={{ paddingTop: 1.6 }}>
-              <Button
-                className={classNames(styles.footer_button)}
-                variant="contained"
-                href="#"
-              >
-                Privacy Policy
-              </Button>
-              <Button
-                className={classNames(styles.footer_button)}
-                variant="contained"
-                href="#"
-              >
-                Cookie Policy
-              </Button>
-            </Typography>
-          </Grid>
-        </Grid>
-      </Container>
-    </footer>
-  );
+
+    return (
+            <Grid container className={classNames(styles.container)}>
+                <Grid item xs={2} className={classNames(styles.gird1)}>
+                    <Logo type={'muted'}> </Logo>
+                </Grid>
+                <Grid item xs={3} className={classNames(styles.gird2)} >
+                    <h3 className={classNames(styles.rights)}>
+                    Bum All Rights Reserved 2021
+                    </h3>
+                </Grid>
+                <Grid item xs={4} columnGap={6} className={classNames(styles.buttonContainer)}>
+                        <ButtonBase variant="contained" color="primary" className={classNames(styles.buttonBase)}>Privacy Policy</ButtonBase>
+                        <ButtonBase variant="contained" color="primary" className={classNames(styles.buttonBase)}>Cookie Policy</ButtonBase>
+                </Grid>
+            </Grid>
+    )
 }
