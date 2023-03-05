@@ -9,10 +9,6 @@ import Avatar from "../avatar/Avatar"
 import User from "../user/User"
 import NftCard from "../card/Card"
 import Trending from "../trending/Trending"
-import Auctions from "../auctions/Auctions";
-import Footer from "../footer/Footer";
-import Step from "../how/Step"
-import How from "../how/How"
 
 const nftCards=[ {
    "name":"Ivy",
@@ -24,8 +20,7 @@ const nftCards=[ {
    },
    "mediaUrl":"images/nft.jpg",
    "price":1,
-   "currency":"ETH",
-   "timeLeft":100000
+   "currency":"ETH"
 },
 {
    "name":"Judie",
@@ -37,8 +32,7 @@ const nftCards=[ {
    },
    "mediaUrl":"images/nft.jpg",
    "price":2.3,
-   "currency":"ETH",
-   "timeLeft":100000
+   "currency":"ETH"
 },
 {
    "name":"Juniper",
@@ -50,8 +44,7 @@ const nftCards=[ {
    },
    "mediaUrl":"images/nft.jpg",
    "price":5,
-   "currency":"ETH",
-   "timeLeft":100000
+   "currency":"ETH"
 },
 {
    "name":"Maple",
@@ -63,8 +56,7 @@ const nftCards=[ {
    },
    "mediaUrl":"images/nft.jpg",
    "price":10,
-   "currency":"ETH",
-   "timeLeft":100000
+   "currency":"ETH"
 }];
 
 const card= {
@@ -81,41 +73,10 @@ const card= {
    "timeLeft":100000
 }
 
-const decs= {
-   "number":1,
-   "title":"Digital Currency",
-   "description":"You can get ETH, the digital currency that fuels transactions on the Ethereum blockchain, from a digital currency exchange"
-  }
-
-  const howInfo= {
-   "description":"Discover, collect, and sell extraordinary NFTs on the world's first & largest NFT marketplace. There are three things you'll need in place to open your account and start buying or selling NFTs on BUM.",
-   "title":"HOW IT WORKS",
-   "items":[
-      {
-         "title":"Digital Currency",
-         "description":"You can get ETH, the digital currency that fuels transactions on the Ethereum blockchain, from a digital currency exchangeg"
-      },
-      {
-         "title":"Digital Currency",
-         "description":"You can get ETH, the digital currency that fuels transactions on the Ethereum blockchain, from a digital currency exchangeg"
-      },
-      {
-         "title":"Digital Currency",
-         "description":"You can get ETH, the digital currency that fuels transactions on the Ethereum blockchain, from a digital currency exchangeg"
-      },
-      {
-         "title":"Digital Currency",
-         "description":"You can get ETH, the digital currency that fuels transactions on the Ethereum blockchain, from a digital currency exchangeg"
-      }
-   ],
-   "link":"www.google.com"
-  }
-  
-
 export default function Test() {
   return (
     <div className={classNames(styles.wrapper)}>
-      <How {...howInfo}/>
+      <NftCard  {...card}/>
     </div>
   );
 }
@@ -125,6 +86,4 @@ export default function Test() {
 // <Trending cards={nftCards}/>
 //
 //     <User name="terika77" info="125 items" avatar='images/avatar.png' verified='true'/>
-// <Auctions cards={nftCards}/>
-//       <Header/>
-// <Footer/>
+
